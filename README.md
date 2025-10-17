@@ -1,16 +1,16 @@
-# SMT.StrategyBuilder
+# HC.StrategyBuilder
 
 A comprehensive .NET 8 library for building, validating, and executing trading strategies with technical indicators.
 
 ## Overview
 
-SMT.StrategyBuilder provides a flexible framework for creating algorithmic trading strategies using technical analysis indicators. The library follows SOLID principles and implements a clean architecture with dependency injection, making it highly extensible and testable.
+HC.StrategyBuilder provides a flexible framework for creating algorithmic trading strategies using technical analysis indicators. The library follows SOLID principles and implements a clean architecture with dependency injection, making it highly extensible and testable.
 
 ## Features
 
 - **Strategy Engine**: Generic strategy execution engine with event-driven architecture
 - **Rule-Based Configuration**: JSON-based trading rule definitions with validation
-- **Technical Indicators**: Integration with SMT.TechnicalCalculators for comprehensive indicator support
+- **Technical Indicators**: Integration with HC.TechnicalCalculators for comprehensive indicator support
 - **Serialization**: Robust JSON serialization with custom enum converters
 - **Validation**: Comprehensive rule validation with detailed error reporting
 - **Dependency Injection**: Full Microsoft.Extensions.DependencyInjection support
@@ -41,13 +41,13 @@ The library is organized into several key components:
 Add the package to your project:
 
 ```bash
-dotnet add package SMT.StrategyBuilder
+dotnet add package HC.StrategyBuilder
 ```
 
 ### Dependency Injection Setup
 
 ```csharp
-using SMT.StrategyBuilder.src.Extensions;
+using HC.StrategyBuilder.src.Extensions;
 
 // In your Program.cs or Startup.cs
 services.AddStrategyConfigurationServices(configuration);
@@ -162,63 +162,76 @@ public class TradingService
 
 ### Prerequisites
 - .NET 8.0 SDK
-- PowerShell (for build script)
 
 ### Build Commands
 
-```powershell
-# Basic build and test
-.\build.ps1
+The project can be built using standard .NET CLI commands:
 
-# Build with code coverage
-.\build.ps1 -CodeCoverage
+```bash
+# Build the solution
+dotnet build
+
+# Run tests
+dotnet test
 
 # Create NuGet package
-.\build.ps1 -CreatePackage
+dotnet pack
 
-# Full build with coverage and package
-.\build.ps1 -CodeCoverage -CreatePackage
-
-# Debug build with coverage
-.\build.ps1 -Configuration Debug -CodeCoverage
+# Run tests with coverage (requires coverlet.collector)
+dotnet test --collect:"XPlat Code Coverage"
 ```
 
 ### Test Coverage
 
-The project maintains high test coverage with 110+ comprehensive test methods covering:
+The project maintains comprehensive test coverage with 21 test files covering:
 - Unit tests for all core components
 - Integration tests for end-to-end workflows
 - Serialization/deserialization scenarios
 - Error handling and edge cases
-- Performance testing for large datasets
+- Converter functionality for enum serialization
 
-Current coverage targets:
-- Line Coverage: >90%
-- Branch Coverage: >85%
-- Method Coverage: >95%
+Test files include:
+- Strategy engine functionality
+- Trade rule evaluation logic
+- Validation components
+- Serialization with custom converters
+- Service extension registration
+- Configuration models
 
 ## Dependencies
 
-- **Microsoft.Extensions.DependencyInjection** - Dependency injection
-- **Microsoft.Extensions.Logging** - Logging abstraction
+- **Microsoft.Extensions.Configuration.Abstractions** - Configuration abstractions
+- **Microsoft.Extensions.DependencyInjection.Abstractions** - Dependency injection abstractions
+- **Microsoft.Extensions.Logging.Abstractions** - Logging abstractions
 - **Newtonsoft.Json** - JSON serialization
-- **SMT.TechnicalCalculators** - Technical indicator calculations
-- **SMT.Common** - Shared models and utilities
+- **HC.TechnicalCalculators** - Technical indicator calculations
 
 ## Project Structure
 
 ```
-SMT.StrategyBuilder/
+HC.StrategyBuilder/
 ├── src/
 │   ├── Evaluators/          # Strategy evaluation logic
 │   ├── Extensions/          # Dependency injection extensions
 │   ├── Interfaces/          # Core interfaces
+│   │   ├── Evaluators/      # Evaluator interfaces
+│   │   ├── Serializers/     # Serializer interfaces
+│   │   └── Validators/      # Validator interfaces
 │   ├── Models/              # Data models and events
+│   │   ├── Common/          # Common models (Candle)
+│   │   └── Events/          # Event argument models
 │   ├── Serializers/         # JSON serialization with converters
+│   │   └── Converters/      # Custom JSON converters
 │   ├── Strategies/          # Strategy engine implementations
 │   └── Validators/          # Rule validation logic
-├── Tests/                   # Comprehensive test suite
-├── build.ps1               # Build and test script
+├── Tests/                   # Comprehensive test suite (21 test files)
+│   ├── Evaluators/          # Evaluator tests
+│   ├── Extensions/          # Extension tests
+│   ├── Helpers/             # Test helpers and data
+│   ├── Models/              # Model tests
+│   ├── Serializers/         # Serializer and converter tests
+│   ├── Strategies/          # Strategy engine tests
+│   └── Validators/          # Validator tests
 └── README.md               # This file
 ```
 
@@ -246,7 +259,8 @@ This project is part of the Silver Mustang Trading Libraries suite.
 
 ## Version History
 
-- **1.0.6.3** - Current version with comprehensive test coverage and SOLID architecture
+- **1.0.6.4** - Current version with comprehensive test coverage and SOLID architecture
+- **1.0.6.3** - Previous version with enhanced functionality
 - **1.0.5.x** - Previous iterations with core functionality
 - **1.0.0** - Initial release
 
