@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.StrategyBuilder", "HC.StrategyBuilder\HC.StrategyBuilder.csproj", "{58C63735-CF66-44B3-867D-8DFD8478A235}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.StrategyBuilder.Tests", "HC.StrategyBuilder.Tests\HC.StrategyBuilder.Tests.csproj", "{49C0C719-F372-43AC-9989-01E9E2A7FD1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Devops", "Devops", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{BD6B1E37-F1E9-43FD-BFB1-B0C33D6A6CD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58C63735-CF66-44B3-867D-8DFD8478A235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C63735-CF66-44B3-867D-8DFD8478A235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C63735-CF66-44B3-867D-8DFD8478A235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C63735-CF66-44B3-867D-8DFD8478A235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C0C719-F372-43AC-9989-01E9E2A7FD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C0C719-F372-43AC-9989-01E9E2A7FD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C0C719-F372-43AC-9989-01E9E2A7FD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C0C719-F372-43AC-9989-01E9E2A7FD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E984C7E4-C828-416E-BCF6-E8BC6E075F8D}
+	EndGlobalSection
+EndGlobal
